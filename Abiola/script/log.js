@@ -9,8 +9,8 @@ function validateInputs(){
     const errorMessage = document.getElementById("message")
     let message;
 
-    valid1 = "jattoismailamusa";
-    valid2= "jattoismailamusa@12345"
+    valid1 = "Abiolayusuf";
+    valid2= "abiolayussuf@12345"
     
     if (username.trim() === valid1 && password.trim() === valid2){
         document.getElementById('success').innerHTML = 'sucessful login';
