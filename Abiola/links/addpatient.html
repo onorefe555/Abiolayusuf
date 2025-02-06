@@ -55,9 +55,11 @@
     
        <div class="dashbord_container">
              <div class="dashbord">
-                  <button><a id="dash" href="../dash.html">Dashboard</a></button> 
+                  <button><a id="dash" href="http://localhost/abiola/dash.php">Dashboard</a></button> 
                    <button  ><a href="alldoctor.html">All Doctor</a></button>
                    <button class="current"><a href="./addpatient.html" >Add Patient</a></button>
+                   <button ><a href="#">All Drug</a></button>
+                   <button ><a href="#">Drug</a></button>
                    <button ><a href="./login.html">Logout</a></button>
     
                   <img src="../img/doctor.png" alt="doctor">
@@ -69,6 +71,24 @@
                 <div class="doctor-profile" >
                         <h3 class="header_personal_health">Personal Health Record</h3>
                         <p>Kindly input all the patient information here</p>
+
+                        <div>
+                            <h2>Search for patient detail</h2>
+
+                                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Enter here to search for patient ID" title="Type in a name">
+
+                                <ul id="myUL">
+                                <li><a href="./ADI712KM.html">ADI712KM</a></li>
+                                <li><a href="./AD271KLM.html">AD271KLM</a></li>
+
+                                <li><a href="./AD271KLM.html">ADI7LMJ</a></li>
+                                <li><a href="./ADI117LK.html">ADI117LK</a></li>
+
+                                <li><a href="./WKLMV1J.html">WKLMV1J</a></li>
+                                <li><a href="#">ADIV21KL</a></li>
+                                <li><a href="#">AVI23KLM</a></li>
+                                </ul>
+                        </div>
 
                         <div class="container">
                             <h3 class="h3" id="header_computerize">Computerized Patient Management System Database Storage</h3>
@@ -116,6 +136,7 @@
                                 <div id="unorderlist_information">
                                 <label>Patient Information</label>
                                 <ul id="unorderlist_information">
+                                    <span id="li_ID_NO"></span>
                                     <span id="li_name_el"></span>
                                     <span id="li_ad_el"></span>
                                     <span id="li_pho_el"></span>
@@ -163,6 +184,57 @@
                     document.getElementById("header_computerize_6").style.color = randColors
                      }
                   setInterval(disPlaylight, 300)
+
+                 function myFunction() {
+                var input, filter, ul, li, a, i, txtValue;
+                input = document.getElementById("myInput");
+                filter = input.value.toUpperCase();
+                ul = document.getElementById("myUL");
+                li = ul.getElementsByTagName("li");
+                for (i = 0; i < li.length; i++) {
+                    a = li[i].getElementsByTagName("a")[0];
+                    txtValue = a.textContent || a.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        li[i].style.display = "";
+                    } else {
+                        li[i].style.display = "none";
+                    }
+                }
+            }
        </script>
+
+       <style>
+           #myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myUL {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#myUL li a {
+  border: 1px solid #ddd;
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block
+}
+
+#myUL li a:hover:not(.header) {
+  background-color: #eee;
+}
+       </style>
 </body>
 </html>
